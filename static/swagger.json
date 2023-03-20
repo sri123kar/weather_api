@@ -1,1 +1,153 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+      "description": "USA Weather Data ",
+      "version": "1.0.0",
+      "title": "Weather App API",
+      "license": {
+        "name": "MIT",
+        "url": "https://opensource.org/licenses/MIT"
+      }
+    },
+    "tags": [
+        {
+          "name": "Weather API",
+          "description": "Test API"
+        }
+      ],
+      "servers": [
+        {
+        "url": "/"
+        }
+    ],
+    "components": {
+        "schemas": {
+            "Weather_Data": {
+                "type": "object",
+                "properties": {
+                    "Station Code": {
+                    "type": "string",
+                    },
+                    "Date": {
+                        "type": "date"
+                    },
+                    "Maximum Temprature": {
+                        "type": "integer"
+                        },
+                        "Minimum Temprature": {
+                            "type": "integer"
+                        },
+                        "precipitation": {
+                            "type": "integer"
+                        }
+                }
+            },
+            "Id":{
+                "type" : "string",
+                "properties" : {
+                    "name" : {
+                        "type" : "string"
+                    }
+                }
+            }
+            
+        }
+    },
+
+
+    "paths": {
+    "/api/weather/{stationcode}/{date}":{
+        "get" :{
+            "tags": [
+                "Weather API"
+            ],
+            "summary": "Get weather data for particular day",
+            "parameters": [{
+              "name": "stationcode",
+              "in": "path",
+              "description": "Enter Station Code",
+              "required": true,
+              "type": "string",
+              "schema" : {
+                  "$ref": "#/components/schemas/Id"
+              }
+            },{
+                "name": "date",
+                "in": "path",
+                "description": "Enter Date Formate : YYYY-MM-DD",
+                "required": true,
+                "type": "string",
+                "schema" : {
+                    "$ref": "#/components/schemas/Id"
+                }
+              }
+
+        ],   
+            "responses": {
+            "200": {
+                "description": "OK",
+                "schema": {
+                "$ref": "#/components/schemas/Weather_Data"
+                }
+            },
+            "404": {
+                "description": "NOT FOUND",
+                "schema": {
+                "$ref": "#/components/schemas/Weather_Data"
+                }
+        }
+        }
+           }  
+         },
+         "/api/weather/stats/{stationcode}/{year}":{
+            "get" :{
+                "tags": [
+                    "Weather API"
+                ],
+                "summary": "Get Statistics for particular year and station",
+                "parameters": [{
+                  "name": "stationcode",
+                  "in": "path",
+                  "description": "Enter Station Code",
+                  "required": true,
+                  "type": "string",
+                  "schema" : {
+                      "$ref": "#/components/schemas/Id"
+                  }
+                },{
+                    "name": "year",
+                    "in": "path",
+                    "description": "Enter Year Formate: YYYY",
+                    "required": true,
+                    "type": "string",
+                    "schema" : {
+                        "$ref": "#/components/schemas/Id"
+                    }
+                  }
+    
+            ],   
+                "responses": {
+                "200": {
+                    "description": "OK",
+                    "schema": {
+                    "$ref": "#/components/schemas/Weather_Data"
+                    }
+                },
+                "404": {
+                    "description": "NOT FOUND",
+                    "schema": {
+                    "$ref": "#/components/schemas/Weather_Data"
+                    }
+            }
+            }
+               }  
+             }
+  }
+
+
+
+}
+
+
+
 
