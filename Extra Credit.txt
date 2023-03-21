@@ -1,0 +1,31 @@
+ExtraCredit- Deployment
+
+
+->Create an RDS instance in AWS.
+->Choose the database engine based on your preference (PostgreSQL, MySQL, etc.).
+->Set up security groups to allow access from the web server and scheduled task.
+->Once the database is up, create the tables using the schema defined in problem 1.
+
+Web Server:
+->Create an EC2 instance and install the necessary dependencies for running the web framework we chose in problem 4 (e.g., Flask).
+->Install and configure the web server software (e.g., Nginx, Apache) to act as a reverse proxy for your web application.
+->Configure the web server to use HTTPS using SSL/TLS certificates.
+->Set up the security groups to allow incoming traffic on port 80 and 443.
+->Once the server is up, deploy your web application to it.
+
+Scheduled Ingestion:
+->Create a Lambda function that will run the ingestion code you wrote in problem 2 on a schedule.
+->Configure the function to use the same security group as the database to allow it to connect to the database.
+->Set up the function to run on a schedule (e.g., every day at midnight).
+->Once the function is created, test it to ensure it runs as expected.
+
+Load Balancing and Auto Scaling:
+->Create an Elastic Load Balancer to distribute incoming traffic across multiple web server instances. This will improve availability and scalability of your application.
+->Set up an Auto Scaling group to automatically launch additional web server instances when traffic increases and remove them when traffic decreases.
+
+Monitoring and Logging:
+->Set up CloudWatch to monitor your infrastructure and generate alarms when there are issues.
+->Set up CloudTrail to log all API calls made to your application.
+->Set up centralized logging using services like CloudWatch Logs or Elasticsearch to collect and analyze logs from your application and infrastructure.
+
+This is just one possible approach to deploying the application on AWS. The exact details will depend on your specific use case and requirements
