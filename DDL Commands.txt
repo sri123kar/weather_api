@@ -1,0 +1,23 @@
+DDL Commands
+
+--> CREATE DATABASE weatherdataapp
+
+--> USE weatherdataapp
+
+--> CREATE TABLE weather (
+    id int NOT NULL AUTO_INCREMENT,
+    StationCode varchar(50),
+    DT date,
+    MaxTemp int,
+    MinTemp int,
+    precipitation int,
+    PRIMARY KEY (id));
+
+--> CREATE TABLE weatherstat (
+    id int NOT NULL AUTO_INCREMENT,
+    year int,
+    StationCode varchar(50),
+    AverageMaxTemp DOUBLE,
+    AverageMinTemp DOUBLE,
+    Totalprecipitation DOUBLE,
+    PRIMARY KEY (id));
