@@ -1,5 +1,14 @@
 # WEATHER_API
 API to fetch weather data
+> problem 1 -> DDL Commands.txt
+
+> problem 2 -> data_ingestion and data_analysis.ipynb
+
+> problem 3 -> data_ingestion and data_analysis.ipynb
+
+> problem 4 -> main.py
+
+> Deployment -> Extra Credit.txt
 
 
 ### STEP 1 -> Creating the database 
@@ -50,15 +59,6 @@ make sure you entered the correct password
 
 
 
-> problem 1 -> DDL Commands.txt
-
-> problem 2 -> data_ingestion and data_analysis.ipynb
-
-> problem 3 -> data_ingestion and data_analysis.ipynb
-
-> problem 4 -> main.py
-
-> Deployment -> Extra Credit.txt
 
 
 
