@@ -1,8 +1,8 @@
-# weather_api
+# WEATHER_API
 API to fetch weather data
 
 
-STEP 1 -> Creating the database 
+### STEP 1 -> Creating the database 
 
 *Create a database in your local mysql is recommended.
 
@@ -11,7 +11,7 @@ STEP 1 -> Creating the database
 *Run DDL Commands in order it is given in 'DDL Commands' File.
 
 
-STEP 2 -> Reading the data from text file and store in the databse
+### STEP 2 -> Reading the data from text file and store in the databse
 
 *Open the Jupitar notebook in your local.
 
@@ -28,7 +28,7 @@ make sure you entered the correct password
 *We have to create other function because every time some data got update then other table data get also affected 
 
 
-STEP 3 ->Run the api
+### STEP 3 ->Run the api
 
 *Install python in your system and make sure it is added in system variable
 
@@ -50,6 +50,8 @@ STEP 3 ->Run the api
 
 
 
-Thankyou
+
+
+**Thankyou**
 
 
