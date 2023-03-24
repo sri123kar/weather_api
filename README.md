@@ -63,7 +63,7 @@ make sure you entered the correct password
     command 1 -> pip install requests
     command 2 -> pip install jsonpath
 
-*After running the abouve commands, type 'python test.py' (make sure your main.py is running)
+*After running the above commands, type 'python test.py' in cmd prompt(make sure your main.py is running)
 
 
 
