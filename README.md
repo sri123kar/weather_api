@@ -57,6 +57,16 @@ make sure you entered the correct password
 
 *The one swagger endpoint got opened which has two api endpoint we can input the data and get desired value 
 
+### STEP 4 ->Run the testcase
+
+*Open terminal in that location and run below commands one by one so that required package is installed
+    command 1 -> pip install requests
+    command 2 -> pip install jsonpath
+
+*After running the abouve commands, type 'python test.py' (make sure your main.py is running)
+
+
+
 
 
 
