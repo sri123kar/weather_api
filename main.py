@@ -1,6 +1,7 @@
 from flask import Flask, jsonify
 import mysql.connector
 from flask_swagger_ui import get_swaggerui_blueprint
+from flask import Flask, make_response
 
 
 app = Flask(__name__)
@@ -43,29 +44,30 @@ def get_weather_data(stationcode,date):
     cursor = conn.cursor()
     query = "select * from weather WHERE StationCode = '"+ stationcode+"' AND Date(DT) = '"+ date+"'";
     cursor.execute(query)
-    rows = cursor.fetchall()
+    row = cursor.fetchone()
 
+    if row is None:
+        response = make_response({"error": "Station code not found or date is incorrect"})
+        response.status_code = 404
+        return response
+        
     # Convert the rows to a list of dictionaries
-    users = []
-    for row in rows:
-        user = {
-            stationcode:{
-            date:{
-            "Maximum Temp": row[3],
-            "Minimum Temp ": row[4],
-            "precipitation": row[5]
-            }
-            }
+    user = {
+        stationcode:{
+        date:{
+        "Minimum Temp": row[3],
+        "Minimum Temp ": row[4],
+        "precipitation": row[5]
         }
-        users.append(user)
+        }
+        }
 
     # Close the database connection
-    cursor.close()
-    conn.close()
+
     
 
     # Return the users as a JSON response
-    return jsonify(users)
+    return jsonify(user)
 
 
 
@@ -84,13 +86,16 @@ def get_stats(stationcode,year):
     query = "select AverageMaxTemp,AverageMinTemp,Totalprecipitation from weatherstat where StationCode = '"+stationcode+"' and year = "+ year;
     cursor.execute(query)
     row = cursor.fetchone()
-
+    if row is None:
+        response = make_response({"error": "Station code not found or date is incorrect"})
+        response.status_code = 404
+        return response
     # Convert the rows to a list of dictionaries
     data = {
         stationcode:{
         year:{
-            "Maximum Avegrage temp in C": Conversion(row[0]),
-            "Minimum Average temp in C": Conversion(row[1]),
+            "Minimum Avegrage temp in C": Conversion(row[0]),
+            "Maximum Average temp in C": Conversion(row[1]),
             "precipitation in cm": row[2]/100
         }
         }
